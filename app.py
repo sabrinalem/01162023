@@ -1,12 +1,12 @@
-from flask import Flask
+from flask import Flask, render_template
 import datetime
 import pygal
 
 app = Flask("DivineTiming")
 
 
-@app.route('/')
-def hello():
+@app.route('/charts/')
+def chart_route():
     sabrina_start = datetime.datetime(year=2022, month=11, day=4)
     lane_start = datetime.datetime(year=2022, month=12, day=20)
     sabrina_cycle = 30
@@ -33,4 +33,5 @@ def hello():
     chart.add('Sabrina: ' + str(sabrina_countdown) + ' day(s) left in cycle',
               [{'value': elapse_sabrina, 'max_value': sabrina_cycle}])
 
-    return chart.render_response()
+    # return chart.render_response()
+    return render_template('dispaly.html', chart)
