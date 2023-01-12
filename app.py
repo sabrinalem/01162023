@@ -33,5 +33,4 @@ def chart_route():
     chart.add('Sabrina: ' + str(sabrina_countdown) + ' day(s) left in cycle',
               [{'value': elapse_sabrina, 'max_value': sabrina_cycle}])
 
-    # return chart.render_response()
-    return render_template('display.html', chart)
+    return chart.render_response()
