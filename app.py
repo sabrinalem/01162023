@@ -34,4 +34,4 @@ def chart_route():
               [{'value': elapse_sabrina, 'max_value': sabrina_cycle}])
 
     # return chart.render_response()
-    return render_template('dispaly.html', chart)
+    return render_template('display.html', chart)
