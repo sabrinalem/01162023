@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, render_template
 import datetime
 import pygal
 
@@ -46,7 +46,8 @@ def graph():
               [{'value': elapse_lane, 'max_value': lane_cylce}])
     chart.add('Sabrina: ' + str(sabrina_countdown) + ' day(s) left in cycle',
               [{'value': elapse_sabrina, 'max_value': sabrina_cycle}])
-    return Response(response=chart.render(), content_type='image/svg+xml')
+#     return Response(response=chart.render(), content_type='image/svg+xml')
+    return render_template('display.html')
 
 
 if __name__ == '__main__':
