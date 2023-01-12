@@ -1,12 +1,26 @@
-from flask import Flask, render_template
+from flask import Flask, Response
 import datetime
 import pygal
 
 app = Flask("DivineTiming")
 
+@app.route('/')
+def index():
+    """ render svg on html """
+    return """
+<html>
+    <body>
+        <figure>
+        <embed type="image/svg+xml" src="/graph/" />
+        </figure>
+    </body>
+</html>'
+"""
 
-@app.route('/charts/')
-def chart_route():
+
+@app.route('/graph/')
+def graph():
+    """ render svg graph """
     sabrina_start = datetime.datetime(year=2022, month=11, day=4)
     lane_start = datetime.datetime(year=2022, month=12, day=20)
     sabrina_cycle = 30
@@ -32,5 +46,8 @@ def chart_route():
               [{'value': elapse_lane, 'max_value': lane_cylce}])
     chart.add('Sabrina: ' + str(sabrina_countdown) + ' day(s) left in cycle',
               [{'value': elapse_sabrina, 'max_value': sabrina_cycle}])
+    return Response(response=chart.render(), content_type='image/svg+xml')
 
-    return chart.render_response()
+
+if __name__ == '__main__':
+    app.run()
