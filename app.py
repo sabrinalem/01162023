@@ -41,7 +41,7 @@ def graph():
     lane_countdown = lane_cylce - elapse_lane
 
     chart = pygal.SolidGauge(inner_radius=0.75, truncate_legend=40)
-    chart.title = 'Countdown'
+    chart.title = 'Divine Timing'
     chart.add('Lane: ' + str(lane_countdown) + ' day(s) left in cycle',
               [{'value': elapse_lane, 'max_value': lane_cylce}])
     chart.add('Sabrina: ' + str(sabrina_countdown) + ' day(s) left in cycle',
