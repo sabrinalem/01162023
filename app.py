@@ -24,7 +24,7 @@ def graph():
     sabrina_start = datetime.datetime(year=2022, month=11, day=4)
     lane_start = datetime.datetime(year=2022, month=12, day=20)
     sabrina_cycle = 30
-    lane_cylce = 25
+    lane_cylce = 23
 
     today = datetime.datetime.now()
     elapse_sabrina = today - sabrina_start
