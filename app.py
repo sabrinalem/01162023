@@ -10,7 +10,7 @@ def graph():
     sabrina_start = datetime.datetime(year=2022, month=11, day=4)
     lane_start = datetime.datetime(year=2022, month=12, day=20)
     sabrina_cycle = 30
-    lane_cylce = 25
+    lane_cycle = 25
     today = datetime.datetime.now()
     elapse_sabrina = today - sabrina_start
     elapse_lane = today - lane_start
@@ -18,12 +18,12 @@ def graph():
         elapse_sabrina = elapse_sabrina.days % sabrina_cycle
     else:
         elapse_lane = elapse_lane.days
-    if elapse_lane.days > lane_cylce:
+    if elapse_lane.days > lane_cycle:
         elapse_lane = elapse_lane.days % lane_cycle
     else:
         elapse_lane = elapse_lane.days
     sabrina_countdown = sabrina_cycle - elapse_sabrina
-    lane_countdown = lane_cylce - elapse_lane
+    lane_countdown = lane_cycle - elapse_lane
 
     chart = pygal.SolidGauge(inner_radius=0.75, truncate_legend=40)
     chart.title = 'Divine Timing'
